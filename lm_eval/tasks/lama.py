@@ -44,6 +44,15 @@ class BigScienceLAMA(PromptSourceTask):
         if self.has_training_docs():
             return self.dataset["train"]
 
+    def validation_docs(self):
+        if self.has_validation_docs():
+            return self.dataset["train"]
+
+    def test_docs(self):
+        if self.has_test_docs():
+            self._test_docs = list(self.dataset["test"])
+            return self._test_docs
+        
     def max_generation_length(self) -> Optional[int]:
         """Denote where the max length of the generation if it is obvious from the task."""
         return 8
