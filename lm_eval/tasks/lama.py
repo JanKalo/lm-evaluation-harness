@@ -44,6 +44,10 @@ class BigScienceLAMA(PromptSourceTask):
         if self.has_training_docs():
             return self.dataset["train"]
 
+    def max_generation_length(self) -> Optional[int]:
+        """Denote where the max length of the generation if it is obvious from the task."""
+        return 8
+
 
 class Trex(PromptSourceTask):
     VERSION = 0
@@ -103,6 +107,10 @@ class Trex(PromptSourceTask):
     def doc_to_target(self, doc):
         return doc
 
+    def max_generation_length(self) -> Optional[int]:
+        """Denote where the max length of the generation if it is obvious from the task."""
+        return 8
+
 
 class google_re(PromptSourceTask):
     VERSION = 0
@@ -161,6 +169,10 @@ class google_re(PromptSourceTask):
     def doc_to_target(self, doc):
         return doc
 
+    def max_generation_length(self) -> Optional[int]:
+        """Denote where the max length of the generation if it is obvious from the task."""
+        return 8
+
 class Conceptnet(PromptSourceTask):
     VERSION = 0
     DATASET_PATH = "lama"
@@ -218,6 +230,10 @@ class Conceptnet(PromptSourceTask):
 
     def doc_to_target(self, doc):
         return doc
+
+    def max_generation_length(self) -> Optional[int]:
+        """Denote where the max length of the generation if it is obvious from the task."""
+        return 8
 
 
 class Squad(PromptSourceTask):
@@ -283,6 +299,6 @@ class Squad(PromptSourceTask):
 
     def max_generation_length(self) -> Optional[int]:
         """Denote where the max length of the generation if it is obvious from the task."""
-        return 5
+        return 8
 
 
